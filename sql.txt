@@ -1,0 +1,29 @@
+CREATE DATABASE chat;
+USE chat;
+drop table if exists user;
+CREATE TABLE user(
+	ID	varchar(32),
+    password	varchar(32) default '123456' not null,
+    name	varchar(32) default '飞翔的企鹅',
+    introduction    varchar(400),
+    image   varchar(300) default 'https://shenbo-edu.oss-cn-shanghai.aliyuncs.com/2021/11/16/277b4091d9af4b29b19e621366b4d35btemplogo.jpg',
+    primary key(ID)
+);
+
+drop table if exists message;
+CREATE TABLE message(
+	ID	int AUTO_INCREMENT,
+    sender	varchar(32) not null,
+    receiver	varchar(32) not null,
+    message_type    int(2) default 0,
+    info    varchar(800),
+    create_time    datetime,
+    primary key(ID)
+);
+
+drop table if exists list;
+CREATE TABLE list(
+    host    varchar(32),
+    friend  varchar(32),
+    primary key(host,friend)
+);

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tongji.mapper.UserMapper">
+    <insert id="register" parameterType="user">
+        insert into user(ID,password)
+        values (#{id},#{password});
+    </insert>
+    <select id="login" parameterType="user" resultType="String">
+        select ID from user where ID=#{id} and password=#{password};
+    </select>
+    <select id="findUserById" parameterType="user" resultType="String">
+        select ID from user where ID=#{id};
+    </select>
+    <select id="getFriends" parameterType="string" resultType="string">
+        select friend from list where host=#{id}
+    </select>
+    <select id="getUserInfo" parameterType="string" resultType="user">
+        select * from user where ID=#{id}
+    </select>
+    <select id="getUserById" parameterType="String" resultType="String">
+        select ID from user where ID=#{id};
+    </select>
+    <insert id="addRelation" parameterType="friendList">
+        INSERT INTO list(host,friend) VALUES(#{host},#{friend})
+    </insert>
+    <update id="updateById" parameterType="user">
+        update user set password=#{password},name=#{name},introduction=#{introduction},image=#{image}
+        where ID=#{id}
+    </update>
+    <delete id="deleteRelation" parameterType="friendList">
+        DELETE FROM list WHERE host=#{host} AND friend=#{friend}
+    </delete>
+</mapper>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="../js/register.js"></script>
+    <script src="../js/api.js"></script>
+</head>
+<body>
+
+<div id="particles-js">
+    <form class="login">
+        <div class="login-top"> 注册</div>
+        
+        <div class="login-center clearfix">
+            <div class="login-center-img"><img src="../img/user/name.png"/></div>
+            <div class="login-center-input">
+                <input type="text" name="username" id="username" placeholder="请输入您的账号"/>
+                <div class="login-center-input-text">账号</div>
+                <span id="usernameMsg"></span>
+            </div>
+        </div>
+       
+        <div class="login-center clearfix">
+            <div class="login-center-img"><img src="../img/user/password.png"/></div>
+            <div class="login-center-input">
+                <input type="password" name="password" id="password" placeholder="请输入您的密码"/>
+                <div class="login-center-input-text">密码</div>
+                <span id="passwordMsg"></span>
+            </div>
+        </div>
+
+        <div class="login-center clearfix">
+            <div class="login-center-img"><img src="../img/user/password.png"/></div>
+            <div class="login-center-input">
+                <input type="password" name="confirmPassword" id="confirmPassword" placeholder="请再次输入您的密码"/>
+                <div class="login-center-input-text">确认密码</div>
+                <span id="confirmPasswordMsg"></span>
+            </div>
+        </div>
+
+        <div class="login-button" id="submit">
+            注册
+        </div>
+        <br>
+        <a href="../">
+            <div class="register" style="text-align:center">转到登录页面</div>
+        </a>
+    </form>
+</div>
+</body>
+</html>

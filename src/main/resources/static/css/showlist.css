@@ -1,0 +1,56 @@
+body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-image: url(../img/user/bj.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#uu {
+    text-align: center;
+    list-style-type: none;
+}
+#uu .lli li {
+    list-style-type: none;
+    text-align: left;
+}
+#uu .lli li div {
+    height: 40px;
+    width: 93%;
+    display:block;
+    text-align: left;
+    transition: border-radius 0.5s, box-shadow 0.5s,line-height 0.5s, background-color 0.5s;
+}
+#uu .lli li div:hover {
+    cursor: pointer;
+    border: 1px solid #ffa9f2;
+    border-radius: 40px 40px 40px 40px;
+    background-color:#ffa9f2;
+    box-shadow: 10px 10px 20px #ffa9f2;
+}
+
+#uu1 {
+    text-align: center;
+    list-style-type: none;
+}
+#uu1 .lli1 li {
+    list-style-type: none;
+    text-align: left;
+}
+#uu1 .lli1 li div {
+    height: 30px;
+    width: 93%;
+    display:block;
+    text-align: left;
+    transition: border-radius 0.5s, box-shadow 0.5s,line-height 0.5s, background-color 0.5s;
+}
+#uu1 .lli1 li div:hover {
+    cursor: pointer;
+    border: 1px solid #b7f7b9;
+    border-radius: 40px 40px 40px 40px;
+    background-color:#b7f7b9;
+    box-shadow: 10px 10px 20px #b7f7b9;
+}

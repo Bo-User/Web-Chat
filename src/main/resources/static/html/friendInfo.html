@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>好友信息</title>
+    <link rel="stylesheet" href="../css/friendInfo.css">
+    <script src="../js/friendInfo.js"></script>
+    <script src="../js/api.js"></script>
+</head>
+<body>
+<div id="particles-js">
+    <form  class="login" >
+        <div class="login-top" style="text-align: center"> 好友信息 </div>
+        <!-- 头像 -->
+        <br>
+        <input id="fileInp" type="file" hidden accept="image/*" onchange="fileChange(this)">
+        <div class="avator" style="text-align: center">
+            <img id="avatorImg" src="../img/user/avator.jpg" alt="头像" width="100" height="100">
+        </div>
+        <br>
+
+        <div class="login-center clearfix">
+            <div class="login-center-img"><img src="../img/user/name.png"/></div>
+            <div class="login-center-input">
+                <input type="text" name="username" id="userId" readonly="readonly"/>
+                <div class="login-center-input-text">账号</div>
+                <span id="useridMsg"></span>
+            </div>
+        </div>
+
+        <div class="login-center clearfix">
+            <div class="login-center-img"><img src="../img/user/name.png"/></div>
+            <div class="login-center-input">
+                <input type="text" name="username" id="usernameDiv" readonly="readonly"/>
+                <div class="login-center-input-text">昵称</div>
+                <span id="usernameMsg"></span>
+            </div>
+        </div>
+
+        <!--个性签名-->
+        <div class="input-send-box" style="display: inline-block; position:relative;
+              left:46px; text-align: center; ">
+            <textarea id="messageTextArea" name="saysth" rows="4" cols="30" style="resize:none;
+                   outline: none; font-size: large; " readonly="readonly"></textarea>
+        </div>
+
+        <br>
+        <br>
+
+        <div>
+            <div class="back-button" id="back" style="display: inline-block;" onclick="backPage()">
+                返回聊天
+            </div>
+
+            <div class="save-button" id="delete" style="display: inline-block;" onclick="deleteFriend()">
+                删除好友
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

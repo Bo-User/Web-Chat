@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>聊天</title>
+    <link rel="stylesheet" href="../css/homepage.css">
+    <link rel="stylesheet" href="../css/table.css">
+    <script src="../js/homepage.js"></script>
+    <script src="../js/api.js"></script>
+</head>
+<body>
+    <div id="particles-js">
+
+        <div style="text-align: center;">
+            <div id="helloDiv" style="display: inline-block; font-size:15px; position:relative; top: 17px; left:-180px;">
+                欢迎您 :
+            </div>
+            <div id="userNameDiv" style="display: inline-block; width:200px; font-size:15px; position:relative; top: 17px; left:-251px;">
+                当前用户账号
+            </div>
+            <div id="viewMyInfo" class="info-button" style="display: inline-block; position:relative;
+             top: 17px; left:181px;" onclick="viewMyInfo()">
+                个人信息
+            </div>
+            <div id="exitSystem" class="back-button" style="display: inline-block; position:relative;
+             top: 17px; left:181px;" onclick="exitSystem()">
+                退出系统
+            </div>
+        </div>
+
+        <form class="login" >
+            <!-- 好友聊天 -->
+            <div class="chat-users">
+                <!-- 左 -->
+                <div class="userlist" style="display: inline-block; overflow-y:scroll; height: 520px; width: 250px;">
+                    <!-- 添加好友功能，一个搜索框，一个添加button -->
+                    <br>
+                    <div>
+                        <!-- 这里来个小图标 -->
+                        <img class="icon" src="../img/add.png" width="20px" height="20px" style="display: inline-block; position:relative; left: 4px;">
+                        <textarea id="searchIn" name="searchIn" rows="1" cols="15" style="display: inline-block; resize:none; 
+                        position:relative; left:2px; outline: none; font-size: large;"></textarea>
+                        <button id = "addBtn" type="button" class = "demo_con button blue" style="display: inline-block;
+                        height:15px; position:relative; top: -3px; left: 2px;">
+                            添加
+                        </button>
+                    </div>
+                    
+                    <table id="table1" class="table_model" style="position:relative;  top: 7px;">
+                        <thead id = "typeTable1">
+                            <tr id = "typeTr1">
+                                <th id="hello" style="text-align: left;">好友头像</th>
+                                <th id="tempUserId" style="text-align: center;">好友账号</th>
+                            </tr>
+                        </thead>
+                        <tbody id = "contentTable1">
+                        </tbody>
+                    </table>
+                    
+                </div>
+
+                <!-- 右 -->
+                <div class="userchatpage" style="display: inline-block; width: 500px; height: 520px;">
+                    <!-- 房间名，昵称加叉号 -->
+                    <div class="chatRoom-header" id="chatRoom-header" 
+                    style="position: relative; left: 0px; top: -20px;">
+                        <div id="chatingToName" class="current-chatRoom-name" style="display: inline-block; font-size:15px ;" width=200px;>
+                            请选择好友进行聊天
+                        </div>
+                        <div class="current-chatRoom-icon" onclick="leaveRoom()" style="float: right;">
+                            <img class="icon" src="../img/exit.png" width="20px" height="20px" alt="关闭" title="关闭" style="cursor:pointer">
+                        </div>
+                    </div>
+
+                    <!-- 消息 -->
+                    <div id="chatRoomBox" class="chatRoom-content-box" style="width: 550px; height: 350px; overflow-y:scroll; box-shadow: 0px 0px 1px #333333;
+                    position:relative; left: -3px; top: -10px;">
+                        <!-- 发送的消息 -->
+                    </div>
+
+                    <!-- 输入框 -->
+                    <div class="chatRoom-footer" style="width: 550px; height: 115px; 
+                    position:relative; left: -1px; top: -97px;">
+                        <div class="input-send-box" style="display: inline-block; ">
+                            <textarea id="messageTextArea" name="saysth" rows="6" cols="57" style="resize:none;
+                            position:relative; left: -1px; top: 90px; outline: none;
+                            font-size: large; "></textarea>
+                        </div>
+                        <!-- 发送与文件 -->
+                        <div style="display: inline-block; position:relative; left: 0px; top: 54px;" >
+                            <div id="viewHistory" style="text-align: center; box-shadow: 0px 0px 1px #333333; position:relative; bottom: 5px; cursor:pointer;">
+                                查看历史
+                            </div>
+
+                            <div>
+                                <div style="width: 30px; height: 30px; display: inline-block;">
+                                    <img id="pictureDiv" class="icon" src="../img/picture.png" width="30px" height="30px"
+                                         alt="发送图片" title="发送图片" style="cursor:pointer">
+                                    <input id="picInp" type="file" hidden accept="image/*" onchange="picSubmitFunction()">
+                                    <input id="submitPicButton" type="submit" hidden value="上传" />
+                                </div>
+
+                                <div style="width: 30px; height: 30px; display: inline-block;">
+                                    <img id="fileDiv" class="icon" src="../img/file.png" width="30px" height="30px"
+                                         alt="发送文件" title="发送文件" style="cursor:pointer">
+                                    <input id="fileInp" type="file" hidden onchange="fileSubmitFunction()">
+                                    <input id="submitFileButton" type="submit" hidden value="上传" />
+                                </div>
+
+                            </div>
+                            <div style="width: 60px; height: 30px;">
+                                <img id="sendMessage" class="icon" src="../img/send.jpg" width="60px" height="30px" alt="发送消息" title="发送消息" style="cursor:pointer">
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+<script>
+    document.getElementById("submitPicButton").onclick=function(event){
+        uploadPicOSS(event);
+    };
+    document.getElementById("submitFileButton").onclick=function(event){
+        uploadFileOSS(event);
+    };
+</script>

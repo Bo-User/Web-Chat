@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人信息</title>
+    <link rel="stylesheet" href="../css/user.css">
+    <script src="../js/user.js"></script>
+    <script src="../js/api.js"></script>
+</head>
+<body>
+    <div id="particles-js">
+        <form  class="login" >
+            <div class="login-top" style="text-align: center"> 个人信息 </div>
+            <!-- 头像 -->
+            <br>
+            <div class="avator" style="text-align: center">
+                <img id="avatorImg" src="" alt="头像" title="点击更换头像"
+                     width="100" height="100" style="cursor:pointer">
+                <input id="picInp" type="file" hidden accept="image/*" onchange="picSubmitFunction()">
+                <input id="submitPicButton" type="submit" hidden value="上传" />
+            </div>
+            <br>
+
+            <div class="login-center clearfix">
+                <div class="login-center-img"><img src="../img/user/name.png"/></div>
+                <div class="login-center-input">
+                    <input type="text" name="username" id="userId" readonly="readonly"/>
+                    <div class="login-center-input-text">账号</div>
+                    <span id="useridMsg"></span>
+                </div>
+            </div>
+
+            <div class="login-center clearfix">
+                <div class="login-center-img"><img src="../img/user/name.png"/></div>
+                <div class="login-center-input">
+                    <input type="text" name="username" id="usernameDiv"/>
+                    <div class="login-center-input-text">昵称</div>
+                    <span id="usernameMsg"></span>
+                </div>
+            </div>
+
+            <div class="login-center clearfix">
+                <div class="login-center-img"><img src="../img/user/password.png"/></div>
+                <div class="login-center-input">
+                    <input type="password" name="password" id="passwordDiv" readonly="readonly"/>
+                    <div class="login-center-input-text">密码</div>
+                    <span id="passwordMsg"></span>
+                </div>
+            </div>
+
+            <!--个性签名-->
+            <div class="input-send-box" style="display: inline-block; position:relative;
+              left:46px; text-align: center; ">
+                    <textarea id="messageTextArea" name="saysth" rows="4" cols="30" style="resize:none;
+                             outline: none; font-size: large; "></textarea>
+            </div>
+
+            <br>
+            <br>
+
+            <div style="margin-left: 32px;">
+                <div class="back-button" id="back" style="display: inline-block;" onclick="backPage()">
+                    返回
+                </div>
+
+                <div class="back-button" id="editPass" style="display: inline-block;" onclick="editPass()">
+                    编辑密码
+                </div>
+
+                <div class="save-button" id="saveInfos" style="display: inline-block;" onclick="saveInfos()">
+                    保存
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+<script>
+    document.getElementById("submitPicButton").onclick=function(event){
+        uploadPicOSS(event);
+    };
+
+    document.getElementById("avatorImg").onclick=function(){
+        document.getElementById("picInp").click();
+    };
+</script>
